@@ -1,0 +1,166 @@
+body{
+    background-color:white;
+    font-family: Garamond;
+    background-position: fixed;
+   
+}
+.header{
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px;
+    z-index: 100;
+    font-size: 25px;
+    background-color: rgb(1, 1, 65);
+    transition: 0.3s;
+  }
+  .main{
+    position:relative;
+    color:black;
+    transition: 0.3s;
+  }
+  .nav a{
+    display:inline-block;
+    color:rgb(247, 190, 4);
+    transition: 0.3s;
+  }
+  .nav a:hover{
+    color:rgb(241, 131, 57);
+  }
+  #home{
+  
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    display:flex;
+    background-size: cover;
+    color:black;  
+    padding: 70px;
+    
+  }
+  .h1{
+    font-size: 60px ;
+  }
+  .me{
+    height:500px;
+    width: 500px;
+    border-radius:50%;
+  }
+ 
+  #me{
+    color:rgb(241, 131, 57);
+    font-size: 60px;
+  }
+  .h1 a{
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    color:brown;
+  }
+  .h1 a:hover{
+    color:rgb(241, 131, 57);
+  }
+  #about{
+    padding: 30px;
+    color:rgb(241, 131, 57);
+    text-align: center;
+    font-size: 55px;
+    position: relative;
+  }
+  .ab{
+    display: inline-block;
+  }
+  .about h1{
+    text-align: center;
+    font-size: 55px;
+    
+  }
+  .ab1{
+    font-size:30px;
+    text-align: left;
+    color:black;
+
+  }
+  .gif{
+    width:250px;
+    height:250px;
+    text-align: right;
+  }
+  .ab2{
+    font-size:45px;
+    color:brown;
+    text-align:right;
+    align-items: right;
+  }
+  .ab2:hover{
+    color:rgb(241, 131, 57);
+  }
+  
+  #skills {
+    text-align: center;
+    align-items: center;
+    color:rgb(241, 131, 57);
+    font-size: 55px ;
+    padding: 30px;
+    position: relative;
+  }
+  .s2{
+    padding: 30px;
+  }
+  .s1{
+    color:black;
+    text-align: right;
+    align-items: right;
+    font-size:30px;
+  }
+  .icons{
+    font-size :60px;
+    color:brown;
+    text-align: center;
+  }
+  table{
+    width:100%;
+  }
+  .contact{
+    position: relative;
+    text-align: center;
+    padding: 30px;
+  }
+  .c1{
+    align-items: center;
+    text-align: center;
+    color:rgb(241, 131, 57);
+    font-size: 35px ;
+    
+    
+  }
+  .c2{
+    font-size: 35px;
+  }
+  .card1{
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
+  max-width: 300px;
+  margin: auto;
+  text-align:center;
+  font-family:Georgia;
+  padding: 50px;
+  align-items: center;
+  display: inline-block;
+  margin: 50px;
+  }
+  .card1 a{
+    font-size: 40px;
+    width:100px;
+    height:100px;
+    align-items:center;
+    text-align:center;
+  }
+  .conatiner1{
+    align-items:center;
+    text-align:center;
+    font-size: 50px;
+  }
