@@ -121,7 +121,10 @@ nav a:hover {
 .skill-item:hover {
     background: rgba(0, 183, 235, 0.3);
 }
-
+.contact{
+    text-align: center;
+    padding: 2rem;
+}
 @media (max-width: 768px) {
     .home h1 {
         font-size: 2rem;

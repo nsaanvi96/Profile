@@ -1,4 +1,4 @@
-// Particle background
+
 particlesJS("particles-js", {
     particles: {
         number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -15,13 +15,13 @@ particlesJS("particles-js", {
             resize: true
         },
         modes: {
-            // No mouse effects
+           
         }
     },
     retina_detect: true
 });
 
-// Dynamic word cycling for paragraph
+
 const words = ["SY B.Tech Undergrad", "Security Enthusiast", "aficionado of space"];
 const changingWord = document.getElementById("changing-word");
 let wordIndex = 0;
@@ -31,9 +31,9 @@ function changeWord() {
     wordIndex = (wordIndex + 1) % words.length;
 }
 
-setInterval(changeWord, 3000); // Change word every 3 seconds
+setInterval(changeWord, 3000); 
 
-// Smooth scrolling and section reveal
+
 document.querySelectorAll('.nav-link').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
