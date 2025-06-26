@@ -62,7 +62,35 @@ nav a:hover {
 }
 
 .home {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+}
+
+.home-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 10 rem;
+}
+
+.home-image {
+    align-items: left;
+    width: 300px;
+    height: auto;
+    margin-right: 10rem
+     /* Increased from 2rem to 4rem for more spacing */
+}
+
+.text-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
     text-align: center;
+    max-width :max-content;
 }
 
 .home h1 {
@@ -78,13 +106,33 @@ nav a:hover {
     max-width: 600px;
     margin: 0 auto;
 }
+#changing-word {
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: italic;    
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #00b7eb, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px;
+}
 
 .projects {
+    display: flex;
+    justify-content: center;
+}
+
+.projects .content-box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
 }
 
 .project-card {
@@ -102,10 +150,13 @@ nav a:hover {
 
 .skills {
     display: flex;
+    justify-content: center;
+}
+
+.skills .content-box {
+    display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    max-width: 1200px;
-    width: 100%;
     justify-content: center;
 }
 
@@ -121,16 +172,32 @@ nav a:hover {
 .skill-item:hover {
     background: rgba(0, 183, 235, 0.3);
 }
-.contact{
-    text-align: center;
-    padding: 2rem;
-}
+
 @media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home-content {
+        flex-direction: column;
+    }
+
+    .home-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
     .home h1 {
         font-size: 2rem;
     }
 
     nav ul {
         gap: 1rem;
+    }
+
+    .content-box {
+        padding: 1rem;
     }
 }
