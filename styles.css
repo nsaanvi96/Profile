@@ -62,27 +62,19 @@ nav a:hover {
 }
 
 .home {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     max-width: 1200px;
     margin-left: auto;
+    margin-right: auto;
 }
 
 .home-content {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-left: 10 rem;
-}
-
-.home-image {
-    align-items: left;
-    width: 300px;
-    height: auto;
-    margin-right: 10rem
-     /* Increased from 2rem to 4rem for more spacing */
 }
 
 .text-box {
@@ -90,7 +82,49 @@ nav a:hover {
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
-    max-width :max-content;
+    min-width: 90%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.home-image {
+    width: 250px;
+    height: auto;
+    margin-right: 2rem;
+}
+
+.text-content {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 183, 235, 0.3);
+}
+
+.social-icons a {
+    color: #00b7eb;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00d4ff;
 }
 
 .home h1 {
@@ -106,10 +140,11 @@ nav a:hover {
     max-width: 600px;
     margin: 0 auto;
 }
+
 #changing-word {
     font-weight: bold;
     text-decoration: underline;
-    font-style: italic;    
+    font-style: italic;
     margin-bottom: 1rem;
     background: linear-gradient(to right, #00b7eb, #00d4ff);
     -webkit-background-clip: text;
@@ -122,6 +157,18 @@ nav a:hover {
     border-radius: 10px;
     width: 100%;
     max-width: 1200px;
+    min-width: 90%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    margin-bottom: 1.5rem;
+    color: #00b7eb;
 }
 
 .projects {
@@ -146,6 +193,16 @@ nav a:hover {
 
 .project-card:hover {
     transform: scale(1.05);
+}
+
+.project-card a {
+    color: #00b7eb;
+    text-decoration: none;
+}
+
+.project-card a:hover {
+    color: #00d4ff;
+    text-decoration: underline;
 }
 
 .skills {
@@ -175,29 +232,49 @@ nav a:hover {
 
 @media (max-width: 768px) {
     .home {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
+        padding: 1rem;
     }
 
     .home-content {
+        width: 100%;
+    }
+
+    .text-box {
+        min-width: 85%;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .content-wrapper {
         flex-direction: column;
+        margin-bottom: 1rem;
     }
 
     .home-image {
         margin-right: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        width: 200px;
     }
 
     .home h1 {
         font-size: 2rem;
     }
 
-    nav ul {
+    .nav ul {
         gap: 1rem;
     }
 
-    .content-box {
-        padding: 1rem;
+    .social-icons {
+        gap: 1rem;
+        padding-top: 0.5rem;
+    }
+
+    .social-icons a {
+        font-size: 1.5rem;
+    }
+
+    .section-heading {
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
 }

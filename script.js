@@ -14,9 +14,7 @@ particlesJS("particles-js", {
         events: {
             resize: true
         },
-        modes: {
-            // No mouse effects
-        }
+        
     },
     retina_detect: true
 });
