@@ -8,6 +8,8 @@
 body {
     overflow-x: hidden;
     color: #fff;
+    margin: 0;
+    height: 100vh;
 }
 
 #particles-js {
@@ -45,61 +47,88 @@ nav a:hover {
     color: #00d4ff;
 }
 
-.section {
+.slide-container {
+    position: relative;
+    width: 100%;
     height: 100vh;
+    overflow-y: auto; /* Enable vertical scrolling */
+    scroll-behavior: smooth; /* Smooth scroll transition */
+    display: block; /* Reset to block for stacking */
+}
+
+.section {
+    position: absolute; /* Use absolute positioning for slides */
+    top: 0;
+    width: 100%;
+    height: 100vh; /* Each section takes full viewport height */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
     padding: 2rem;
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s, transform 0.5s;
+    transform: scale(1); /* Start at full size */
+    transition: transform 0.7s ease, opacity 0.7s ease, top 0s; /* Add top transition for repositioning */
+    visibility: hidden;
 }
 
 .section.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1.2); /* Zoom in slightly for emphasis */
+    visibility: visible;
+    z-index: 10; /* Ensure active slide is on top */
+}
+
+.section.leaving {
+    opacity: 0;
+    transform: scale(0.8); /* Zoom out slightly on leaving */
+    transition: transform 0.7s ease, opacity 0.7s ease;
+    z-index: 5; /* Lower z-index for leaving slide */
 }
 
 .home {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Ensure vertical centering */
     width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 1400px; /* Increased for larger content area */
 }
 
 .home-content {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center the content wrapper */
     width: 100%;
 }
 
 .text-box {
     background: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
+    padding: 2.5rem; /* Increased padding */
     border-radius: 10px;
     text-align: center;
     min-width: 90%;
-    max-width: 1000px;
+    max-width: 1200px; /* Increased for larger content */
     box-sizing: border-box;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.text-box:hover {
+    transform: scale(1.05);
 }
 
 .content-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center the image and text */
     width: 100%;
     margin-bottom: 1.5rem;
 }
 
 .home-image {
-    width: 250px;
+    width: 300px; /* Increased image size */
     height: auto;
     margin-right: 2rem;
 }
@@ -119,7 +148,7 @@ nav a:hover {
 
 .social-icons a {
     color: #00b7eb;
-    font-size: 1.8rem;
+    font-size: 2rem; /* Increased icon size */
     transition: color 0.3s;
 }
 
@@ -128,7 +157,7 @@ nav a:hover {
 }
 
 .home h1 {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Increased font size */
     margin-bottom: 1rem;
     background: linear-gradient(to right, #00b7eb, #00d4ff);
     -webkit-background-clip: text;
@@ -136,8 +165,8 @@ nav a:hover {
 }
 
 .home p {
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: 1.4rem; /* Increased font size */
+    max-width: 700px; /* Increased max width */
     margin: 0 auto;
 }
 
@@ -153,42 +182,48 @@ nav a:hover {
 
 .content-box {
     background: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
+    padding: 2.5rem; /* Increased padding */
     border-radius: 10px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px; /* Increased for larger content area */
     min-width: 90%;
     box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto; /* Center the content box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
 }
 
 .section-heading {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3rem; /* Increased font size */
     text-decoration: underline;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: #00b7eb;
 }
 
 .projects {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .projects .content-box {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased card width */
+    gap: 2.5rem; /* Increased gap */
+    width: 100%;
+    justify-items: center; /* Center grid items */
 }
 
 .project-card {
     background: rgba(0, 183, 235, 0.1);
-    padding: 1.5rem;
+    padding: 2rem; /* Increased padding */
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s;
     border: 1px solid #00b7eb;
+    width: 90%; /* Ensure consistent width */
 }
 
 .project-card:hover {
@@ -198,6 +233,7 @@ nav a:hover {
 .project-card a {
     color: #00b7eb;
     text-decoration: none;
+    font-size: 1.3rem; /* Increased font size */
 }
 
 .project-card a:hover {
@@ -205,29 +241,86 @@ nav a:hover {
     text-decoration: underline;
 }
 
+.project-card p {
+    font-size: 1.2rem; /* Increased font size */
+}
+
 .skills {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .skills .content-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+    display: flex; /* Changed to flex for side-by-side */
+    flex-direction: row; /* Horizontal layout */
+    gap: 1.5rem; /* Increased gap */
+    justify-content: center; /* Center skill items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .skill-item {
     background: rgba(0, 183, 235, 0.1);
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem; /* Increased padding */
     border-radius: 20px;
-    font-size: 1.1rem;
+    font-size: 1.3rem; /* Increased font size */
     transition: background 0.3s;
     border: 1px solid #00b7eb;
 }
 
 .skill-item:hover {
     background: rgba(0, 183, 235, 0.3);
+}
+
+.contacts {
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacts .content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
+}
+
+.contact-icons {
+    display: flex;
+    gap: 2.5rem; /* Increased gap */
+    margin-bottom: 1.5rem;
+    justify-content: center; /* Center icons */
+}
+
+.contact-icon {
+    font-size: 3.5rem; /* Increased icon size */
+    color: #1e1e3f;
+    background: linear-gradient(45deg, #1e1e3f, #2a2a5f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite;
+    position: relative;
+}
+
+.contact-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 183, 235, 0.3) 0%, rgba(0, 212, 255, 0) 70%);
+    border-radius: 50%;
+    animation: glow 3s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { transform: scale(0); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(0); opacity: 0.5; }
 }
 
 @media (max-width: 768px) {
@@ -242,7 +335,7 @@ nav a:hover {
     .text-box {
         min-width: 85%;
         max-width: 100%;
-        padding: 1rem;
+        padding: 1.5rem; /* Increased padding */
     }
 
     .content-wrapper {
@@ -257,7 +350,7 @@ nav a:hover {
     }
 
     .home h1 {
-        font-size: 2rem;
+        font-size: 2.5rem; /* Increased font size */
     }
 
     .nav ul {
@@ -270,11 +363,32 @@ nav a:hover {
     }
 
     .social-icons a {
-        font-size: 1.5rem;
+        font-size: 1.7rem; /* Increased icon size */
     }
 
     .section-heading {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        font-size: 2.2rem; /* Increased font size */
+        margin-bottom: 1.5rem;
+    }
+
+    .text-box:hover {
+        transform: scale(1.03);
+    }
+
+    .projects .content-box {
+        padding: 1rem;
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+
+    .skills .content-box {
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+
+    .contact-icons {
+        gap: 1.5rem;
+    }
+
+    .contact-icon {
+        font-size: 2.7rem; /* Increased icon size */
     }
 }

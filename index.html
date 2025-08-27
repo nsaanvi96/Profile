@@ -5,64 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 </head>
 <body>
     <div id="particles-js"></div>
     <nav>
         <ul>
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#contacts" class="nav-link">Contacts</a></li>
+            <li><a href="#home" class="nav-link" data-slide="0">Home</a></li>
+            <li><a href="#projects" class="nav-link" data-slide="1">Projects</a></li>
+            <li><a href="#skills" class="nav-link" data-slide="2">Skills</a></li>
+            <li><a href="#contacts" class="nav-link" data-slide="3">Contacts</a></li>
         </ul>
     </nav>
 
-    <section id="home" class="section home">
-        <div class="home-content">
-            <div class="text-box">
-                <div class="content-wrapper">
-                    <img src="img1.png" class="home-image">
-                    <div class="text-content">
-                        <h1>HELLO<br>I am Saanvi</h1>
-                        <p id="dynamic-text">A passionate <span id="changing-word"></span> explore my projects below</p>
+    <div class="slide-container">
+        <section id="home" class="section home slide">
+            <div class="home-content">
+                <div class="text-box">
+                    <div class="content-wrapper">
+                        <img src="img1.png" class="home-image">
+                        <div class="text-content">
+                            <h1>HELLO<br>I am Saanvi</h1>
+                            <p id="dynamic-text">A passionate <span id="changing-word"></span></p>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/naik-saanvi-krishnanand-000711329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/nsaanvi96" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="Saanvi K NAIK.pdf"><i class="fa-solid fa-file"></i></a>
                     </div>
                 </div>
-                <div class="social-icons">
-                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects slide">
+            <div class="content-box">
+                <h2 class="section-heading">Projects</h2>
+                <div class="project-card">
+                    <h2><a href="https://github.com/nsaanvi96/KeyLogger.git" target="_blank">KEYLOGGER</a></h2>
+                    <p>Logs the Keystrokes and saves them in a text file in an encrypted manner<br>The encrypted text can be decrypted and saved in a new file as well</p>
+                </div>
+                <div class="project-card">
+                    <h2><a href="https://github.com/nsaanvi96/TrueTrace.git" target="_blank">Network Analyser</a></h2>
+                    <p>Ongoing Project<br>Analyses the networks and also gives port analysis</p>
+                </div>
+                <div class="project-card">
+                    <h2><a href="https://github.com/nsaanvi96/TrueTrace.git" target="_blank">TRUETRACE</a></h2>
+                    <p>Ongoing Project<br>An Extension which detects phishing links and does Deepfake Analysis</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="section projects">
-        <div class="content-box">
-            <h2 class="section-heading">Projects</h2> <!-- Positioned above the cards -->
-            <div class="project-card">
-                <h2><a href="https://github.com/yourusername/keylogger-repo" target="_blank">KEYLOGGER</a></h2>
-                <p>Ongoing Project<br>Logs the Keystrokes and saves them in a text file in an encrypted manner<br>The encrypted text can be decrypted and saved in a new file as well</p>
+        <section id="skills" class="section skills slide">
+            <div class="content-box">
+                <h2 class="section-heading">Tech Skills</h2>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">MySql</div>
+                <div class="skill-item">Flask</div>
+                <div class="skill-item">Networks</div>
+                <div class="skill-item">Operating Systems</div>
+                <div class="skill-item">Basic Frontend</div>
             </div>
-            <div class="project-card">
-                <h2><a href="https://github.com/yourusername/truetrace-repo" target="_blank">TRUETRACE</a></h2>
-                <p>Ongoing Project<br>An Extension which detects phishing links and does Deepfake Analysis</p>
+        </section>
+        <section id="contacts" class="section contacts slide">
+            <div class="content-box">
+                <h2 class="section-heading">GET IN TOUCH WITH ME !?</h2>
+                <div class="contact-icons">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <i class="fas fa-phone contact-icon"></i>
+                </div>
+                <p>Email: naiksaanvi96@gmail.com</p>
+                <p>Phone: +91 9518314351</p>
             </div>
-        </div>
-    </section>
-
-    <section id="skills" class="section skills">
-        <div class="content-box">
-            <div class="skill-item">HTML</div>
-            <div class="skill-item">CSS</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">React</div>
-            <div class="skill-item">Python</div>
-        </div>
-    </section>
-    <section id="contacts" class="section contacts">
-        <div class="content-box">
-            <h2 class="section-heading">Contacts</h2>
-            <p>Email: </p>
+        </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>

@@ -14,7 +14,9 @@ particlesJS("particles-js", {
         events: {
             resize: true
         },
-        
+        modes: {
+            // No mouse effects
+        }
     },
     retina_detect: true
 });
@@ -31,33 +33,75 @@ function changeWord() {
 
 setInterval(changeWord, 3000); // Change word every 3 seconds
 
-// Smooth scrolling and section reveal
-document.querySelectorAll('.nav-link').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+// Slide navigation with zoom effect
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slideContainer = document.querySelector('.slide-container');
 
-        document.querySelectorAll('.section').forEach(section => {
-            section.classList.remove('active');
-        });
-
-        targetSection.classList.add('active');
-    });
-});
-
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+function updateSlides(newSlide) {
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'leaving');
+        slide.style.visibility = 'hidden';
+        if (index === newSlide) {
+            slide.classList.add('active');
+            slide.style.visibility = 'visible';
+        } else if (index === currentSlide) {
+            slide.classList.add('leaving');
+            slide.style.visibility = 'visible'; // Keep leaving slide visible during transition
         }
     });
-}, { threshold: 0.3 });
+    currentSlide = newSlide;
+    // Scroll to the top of the new slide
+    slideContainer.scrollTo({
+        top: newSlide * window.innerHeight,
+        behavior: 'smooth'
+    });
+}
 
-sections.forEach(section => {
-    observer.observe(section);
+// Handle scroll events with better control
+let lastScrollTime = 0;
+const scrollDelay = 500; // Minimum delay between scroll actions in milliseconds
+
+slideContainer.addEventListener('wheel', (e) => {
+    e.preventDefault(); // Prevent default scrolling behavior
+    const now = Date.now();
+    if (now - lastScrollTime < scrollDelay) return; // Limit scroll rate
+
+    const delta = e.deltaY; // Positive for down, negative for up
+    let newSlide = currentSlide;
+
+    if (delta > 0 && currentSlide < slides.length - 1) {
+        newSlide = currentSlide + 1; // Move to next slide
+    } else if (delta < 0 && currentSlide > 0) {
+        newSlide = currentSlide - 1; // Move to previous slide
+    }
+
+    if (newSlide !== currentSlide) {
+        updateSlides(newSlide);
+        lastScrollTime = now; // Update the last scroll time
+    }
 });
 
-document.querySelector('#home').classList.add('active');
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const newSlide = parseInt(this.getAttribute('data-slide'));
+        if (newSlide !== currentSlide) {
+            updateSlides(newSlide);
+        }
+    });
+});
+
+// Initialize first slide and ensure content loads
+document.addEventListener('DOMContentLoaded', () => {
+    currentSlide = 0;
+    slides.forEach((slide, index) => {
+        slide.style.transform = 'scale(1)';
+        if (index === currentSlide) {
+            slide.classList.add('active');
+            slide.style.visibility = 'visible';
+        } else {
+            slide.style.visibility = 'hidden';
+        }
+    });
+});
