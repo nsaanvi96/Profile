@@ -22,7 +22,7 @@ particlesJS("particles-js", {
 });
 
 // Dynamic word cycling for paragraph
-const words = ["SY B.Tech Undergrad", "Security Enthusiast", "aficionado of space"];
+const words = ["SY B.Tech Undergrad", "Security Enthusiast" , "A Learner"]
 const changingWord = document.getElementById("changing-word");
 let wordIndex = 0;
 
